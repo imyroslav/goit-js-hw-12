@@ -10,7 +10,6 @@ const lightbox = new SimpleLightbox('.gallery a', {
 lightbox.refresh();
 
 export function renderGallery(images) {
-  galleryElement.innerHTML = '';
 
   images.forEach(image => {
     const cardHTML = `
@@ -30,4 +29,11 @@ export function renderGallery(images) {
     galleryElement.insertAdjacentHTML('beforeend', cardHTML);
   });
   lightbox.refresh();
+}
+export function showEndOfCollectionMessage() {
+  const endMessage = document.createElement('p');
+  endMessage.classList.add('end-message');
+  endMessage.textContent =
+    "We're sorry, but you've reached the end of search results.";
+  galleryElement.insertAdjacentElement('afterend', endMessage);
 }
